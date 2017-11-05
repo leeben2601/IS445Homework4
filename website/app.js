@@ -1,42 +1,58 @@
-function myFunction() {
-    const numInput = prompt('Please enter a number between 2 and 10')
-    
-    // alert('Your input is: ' + message)
-    if (numInput >= 2 && numInput <=10) {
-    const output = document.getElementById("output");
-    output.innerHTML = 'Your input number is ' + numInput;
-    
-    //Function for Task 2 (Divide numInput by 2 and return the value for how many times it took to be less than .000001)
-    function myFunction2() {
-        let divide = numInput;
-        let count = 0;
-        while (divide >= .000001) {
-            divide = divide/2;
-            count = count + 1;
-            document.getElementById("task").innerHTML = "The number of times to divide the number " +numInput + " by 2 to get a value less than one millionth is " + count;
-        }
-        
-    }
+const myArray = [
+    'message 01',
+    'message 02',
+    'message 03',
+    'message 04',
+    'message 05',
+];
 
-    //Function for Task 3
-    function myFunction3(){
-        let text = "";
-        let i;
-        for (i = numInput; i > 0; i--) {
-            for (j=1; j<=i;j++) {
-            text += "*";
-            }
-            text += "<br>";
-        }
-        document.getElementById("task2").innerHTML = text;
-        }
-
-    myFunction2();
-    myFunction3();
-    } 	else {
-            const output = document.getElementById("task3");
-            output.innerHTML = 'Your input number is ' + numInput + ". The valid input number is between 2 and 10. Please reload this page and try again."
-            document.getElementById("task2").style.display = "none";
-        }
-    }
-myFunction();
+let messageOne = prompt("Choose an Option:\n 1: Show messages\n 2: Add a message\n 3: Delete a message\n 0: Quit", "");
+//Part One: Display messages
+if(messageOne==0)
+{
+	document.getElementById("output").innerHTML = "Good Bye";
+}else if(messageOne==1)
+{
+let str = "The current messages are:";
+	for(let i=0;i< myArray.length;i++)
+	{
+		str = str+"<br>"+(i+1)+": ";
+		str =  str+myArray[i];
+	}
+	document.getElementById("output").innerHTML = str;
+//Part Two: Add message
+}else if(messageOne==2)
+{
+	let messageTwo = prompt("Enter a new message:","");
+	myArray.push(messageTwo);
+	let str = "The current messages are:";
+	for(let i=0;i< myArray.length;i++)
+	{
+		str = str+"<br>"+(i+1)+": ";
+		str =  str+myArray[i];
+	}
+	document.getElementById("output").innerHTML = str;
+//Part Three: Delete message
+}else if(messageOne==3)
+{
+	let messageThree = prompt("Enter the message index (between 1 and "+myArray.length+")","");
+	messageThree = messageThree-1;
+	if(messageThree >= 0 && messageThree < myArray.length)
+	{
+		myArray.splice(messageThree, 1);
+		let str = "The current messages are:";
+		for(let i=0;i< myArray.length;i++)
+		{
+			str = str+"<br>"+(i+1)+": ";
+			str =  str+myArray[i];
+		}
+		document.getElementById("output").innerHTML = str;
+	}
+	else
+	{
+		document.getElementById("output").innerHTML = "Please refresh and select a correct command";
+	}
+}else
+{
+	document.getElementById("output").innerHTML = "Please refresh and select a correct command";
+}
