@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+#candidate_name {
+    border:none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+}
+
+div#add button#submit {
+    width: 50%;
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+    background-color: #3C6DFC;
+    color: white;
+} 
+
+div#candidate{
+    width: 25%;
+}
+
+p {
+    display: inline-block;
+}
+
+form {
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+
+div#candidate div button{
+    float: right;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 2px;
+    background-color: white;
+}
